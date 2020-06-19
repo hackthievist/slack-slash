@@ -1,0 +1,11 @@
+# node modules
+application/node_modules
+
+# env files 
+application/.env
+
+# log files
+application/yarn-error.log
+
+docker/secrets.env
+docker/config.env
