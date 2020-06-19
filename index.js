@@ -12,7 +12,7 @@ app.post('/get-gif', (req, res) => {
     const randomIndex = Math.floor(Math.random() * urls.length);
     return res.status(200).send({
         response_type: 'in_channel',
-        text: urls[randomIndex]
+        text: `<${urls[randomIndex]}| good job>`,
     });
 });
 
