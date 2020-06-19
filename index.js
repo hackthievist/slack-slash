@@ -10,7 +10,10 @@ app.post('/get-gif', (req, res) => {
         'https://res.cloudinary.com/dlz2qvds4/image/upload/v1592592765/samples/khadijah/Animated_GIF-downsized_large_1.gif',
     ];
     const randomIndex = Math.floor(Math.random() * urls.length);
-    return res.status(200).send(urls[randomIndex]);
+    return res.status(200).send({
+        response_type: 'in_channel',
+        text: urls[randomIndex]
+    });
 });
 
 app.listen(port, () => console.log(`App listening at ${process.env.HOST}:${port}`));
