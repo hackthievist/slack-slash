@@ -13,6 +13,8 @@ app.post('/get-gif', (req, res) => {
     return res.status(200).send({
         response_type: 'in_channel',
         text: `<${urls[randomIndex]}| good job>`,
+        unfurl_links: true,
+        unfurl_media: true,
     });
 });
 
