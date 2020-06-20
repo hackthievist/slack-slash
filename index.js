@@ -19,7 +19,7 @@ app.post('/get-gif', async (req, res) => {
         const responseUrl = req.body.response_url;
         await fetch(responseUrl, {
             method: 'post',
-            body: JSON.stringify({ delete_original: "true" }),
+            body: JSON.stringify({ delete_original: true }),
             headers: { 'Content-Type': 'application/json' },
         });
         return res.status(200).send({
