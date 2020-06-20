@@ -17,19 +17,11 @@ app.post('/get-gif', async (req, res) => {
         ];
         const randomIndex = Math.floor(Math.random() * urls.length);
         const responseUrl = req.body.response_url;
-        // const response = await fetch(responseUrl, {
-        //     method: 'post',
-        //     body: JSON.stringify({ delete_original: "true" }),
-        //     headers: { 'Content-Type': 'application/json' },
-        // });
-        const response = await axios({
-            method: 'POST',
-            url: responseUrl,
-            headers: { 'content-type': 'application/json' },
-            data: { delete_original: true },
+        await fetch(responseUrl, {
+            method: 'post',
+            body: JSON.stringify({ delete_original: "true" }),
+            headers: { 'Content-Type': 'application/json' },
         });
-        console.log('res', req.body.response_url);
-        console.log(response);
         return res.status(200).send({
             response_type: 'in_channel',
             text: `<${urls[randomIndex]}| good job>`,
