@@ -16,8 +16,8 @@ app.post('/get-gif', async (req, res) => {
         ];
         const randomIndex = Math.floor(Math.random() * urls.length);
         const responseUrl = req.body.response_url;
-        const userID = req.body.user_id;
-        const text  = `<${urls[randomIndex]}| good job> by @<${userID}>`;
+        const username = req.body.user_name;
+        const text  = `<${urls[randomIndex]}| good job> by @<${username}>`;
 
         await fetch(responseUrl, {
             method: 'post',
