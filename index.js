@@ -23,7 +23,7 @@ app.post('/get-gif', async (req, res) => {
             headers: { 'Content-Type': 'application/json' },
         });
         console.log('res', req.body.response_url);
-        console.log(await response);
+        console.log(await response.json());
         return res.status(200).send({
             response_type: 'in_channel',
             text: `<${urls[randomIndex]}| good job>`,
