@@ -3,7 +3,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const axios = require('axios');
 app.use(bodyParser({ extended: false }));
 
 app.get('/', (req, res) => res.send('Haha what are you looking for?'));
@@ -21,14 +20,10 @@ app.post('/get-gif', async (req, res) => {
 
         await fetch(responseUrl, {
             method: 'post',
-            body: JSON.stringify(text),
+            body: JSON.stringify({ text, response_type: 'in_channel' }),
             headers: { 'Content-Type': 'application/json' },
         });
-        return res.status(200).send({
-            response_type: 'in_channel',
-            text: `<${urls[randomIndex]}| good job>`,
-            unfurl_media: true,
-        });
+        return res.status(200).end();
     } catch (err) {
         console.log(err);
     }
