@@ -25,7 +25,8 @@ app.post('/get-gif', async (req, res) => {
         const response = await axios({
             method: 'POST',
             url: responseUrl,
-            headers: { 'content-type': 'application/json' }
+            headers: { 'content-type': 'application/json' },
+            data: { delete_original: true },
         });
         console.log('res', req.body.response_url);
         console.log(response);
