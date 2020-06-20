@@ -24,7 +24,11 @@ app.post('/get-gif', async (req, res) => {
             body: JSON.stringify(text),
             headers: { 'Content-Type': 'application/json' },
         });
-        return res.status(200).send('OK');
+        return res.status(200).send({
+            response_type: 'in_channel',
+            text: `<${urls[randomIndex]}| good job>`,
+            unfurl_media: true,
+        });
     } catch (err) {
         console.log(err);
     }
