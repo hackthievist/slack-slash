@@ -16,6 +16,7 @@ app.post('/get-gif', (req, res) => {
         text: `<${urls[randomIndex]}| good job>`,
         unfurl_links: true,
         unfurl_media: true,
+        delete_original: true,
     });
 });
 
