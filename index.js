@@ -17,9 +17,11 @@ app.post('/get-gif', async (req, res) => {
         ];
         const randomIndex = Math.floor(Math.random() * urls.length);
         const responseUrl = req.body.response_url;
+        const text  = `<${urls[randomIndex]}| good job>`;
+
         await fetch(responseUrl, {
             method: 'post',
-            body: JSON.stringify({ delete_original: true }),
+            body: JSON.stringify(text),
             headers: { 'Content-Type': 'application/json' },
         });
         return res.status(200).send({
