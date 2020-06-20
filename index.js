@@ -5,6 +5,7 @@ const port = process.env.PORT || 3000;
 app.get('/', (req, res) => res.send('Haha what are you looking for?'));
 
 app.post('/get-gif', (req, res) => {
+    console.log(req.body);
     const urls = [
         'https://res.cloudinary.com/dlz2qvds4/image/upload/v1592592702/samples/khadijah/Animated_GIF-downsized_large_2.gif',
         'https://res.cloudinary.com/dlz2qvds4/image/upload/v1592592765/samples/khadijah/Animated_GIF-downsized_large_1.gif',
