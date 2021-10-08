@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const fetch = require('node-fetch');
-app.use(express.json());
+app.use(express.urlencoded());
 
 // Home
 app.get('/', (req, res) => res.send('Haha what are you looking for?'));
