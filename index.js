@@ -30,8 +30,9 @@ app.post('/get-gif', async (req, res) => {
 
 const getUrls = () => ([
     // urls where media files are hosted.
-    'https://gph.is/g/ZORBzKd',
-    'https://gph.is/g/ZnnlOBL',
+    'https://res.cloudinary.com/dlz2qvds4/image/upload/v1592592702/samples/khadijah/Animated_GIF-downsized_large_2.gif',
+    'https://res.cloudinary.com/dlz2qvds4/image/upload/v1592592765/samples/khadijah/Animated_GIF-downsized_large_1.gif',
+    'https://res.cloudinary.com/dlz2qvds4/image/upload/v1633704245/samples/khadijah/KDJ.gif',
 ]);
 
 const postToChannel = async (responseUrl, text) => {
