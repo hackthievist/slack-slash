@@ -13,7 +13,6 @@ app.post('/get-gif', async (req, res) => {
         const urls = getUrls();
         const randomIndex = Math.floor(Math.random() * urls.length);
         const url = urls[randomIndex];
-        console.log(url);
 
         /* Slack slash commands have an invocation structure that includes:
             - response_url: a hook/url that a POST request can be sent to for sending, editing or deleting messages
@@ -36,7 +35,6 @@ const getUrls = () => ([
 ]);
 
 const postToChannel = async (responseUrl, text) => {
-    console.log('res_url', responseUrl);
     return fetch(responseUrl, {
         method: 'POST',
         /* Slack slash commands and apps generally expect a body with the following attributes:
