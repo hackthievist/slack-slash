@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-app.use(bodyParser());
+app.use(express.json());
 
 // Home
 app.get('/', (req, res) => res.send('Haha what are you looking for?'));
@@ -14,6 +13,7 @@ app.post('/get-gif', async (req, res) => {
         const urls = getUrls();
         const randomIndex = Math.floor(Math.random() * urls.length);
         const url = urls[randomIndex];
+        console.log(url);
 
         /* Slack slash commands have an invocation structure that includes:
             - response_url: a hook/url that a POST request can be sent to for sending, editing or deleting messages
@@ -36,6 +36,7 @@ const getUrls = () => ([
 ]);
 
 const postToChannel = async (responseUrl, text) => {
+    console.log('res_url', responseUrl);
     return fetch(responseUrl, {
         method: 'POST',
         /* Slack slash commands and apps generally expect a body with the following attributes:
@@ -50,7 +51,6 @@ const postToChannel = async (responseUrl, text) => {
         body: JSON.stringify({
             text,
             response_type: 'in_channel',
-            icon_url: 'https://res.cloudinary.com/dlz2qvds4/image/upload/v1633696606/samples/khadijah/image_2.png',
         }),
         headers: { 'Content-Type': 'application/json' },
     });
