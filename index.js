@@ -46,7 +46,11 @@ const postToChannel = async (responseUrl, text) => {
 
                It can also be set to "in_channel" which means the response from the command is visible in whatever channel it is invoked.      
         */
-        body: JSON.stringify({ text, response_type: 'in_channel' }),
+        body: JSON.stringify({
+            text,
+            response_type: 'in_channel',
+            icon_url: 'https://res.cloudinary.com/dlz2qvds4/image/upload/v1633696606/samples/khadijah/image_2.png',
+        }),
         headers: { 'Content-Type': 'application/json' },
     });
 }
